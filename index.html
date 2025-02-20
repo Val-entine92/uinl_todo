@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.jsdelivr.net/gh/uinl/u1js/u1.min.js"></script>
+</head>
+<body></body>
+
+<script>
+
+
+const start_up = {"value":[ 
+            {id:"Welcome to Your To Do List",class:"string"},
+            {id:"Please Add","v":"","input":1},
+            {class:'btn',id:'Add'} ,
+            {class:'btn',id:'Clear'},
+        ]
+}
+
+const priority1= {id:"Priority", value:[
+        {
+        "defaults":{
+            "class":"opt"
+        },
+        "value":[
+            {id:"High"},
+            {id:"Medium"},
+            {id:"Low"}
+        ]
+    }]}
+
+// on start
+app.start(event=>{
+    app.display({
+        value:[
+            start_up
+            ]
+    });
+});
+
+
+var userInputs = [];
+
+
+app.event({u:"Please Add"},event=>{
+    // update user inputs to previous entry
+    userInputs = [...userInputs, event.v, priority1
+    ] }
+        
+    
+);//end event
+
+        app.event({u:'Add', v:true}, event=>{
+            app.display({
+                value: [
+                    start_up,
+                    {id:'To Do', "v":userInputs 
+        }
+                ],
+                
+
+    })
+    });
+
+
+app.event({u:"Clear", v:true}, event=>{
+    //will update and delete all items in userInput container 
+    app.display({
+                value: [
+                    start_up,
+                    {id:'To Do', "v":userInputs = [] }
+                    
+    ]})
+})
+
+
+
+
+</script>
+
+</html>
