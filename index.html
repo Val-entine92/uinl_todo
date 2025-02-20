@@ -10,10 +10,9 @@
 
 <script>
 
-
 const start_up = {"value":[ 
-            {id:"Welcome to Your To Do List",class:"string"},
-            {id:"Please Add","v":"","input":1},
+            
+            {id:"Please Add A To Do","v":"","input":1},
             {class:'btn',id:'Add'} ,
             {class:'btn',id:'Clear'},
         ]
@@ -44,7 +43,7 @@ app.start(event=>{
 var userInputs = [];
 
 
-app.event({u:"Please Add"},event=>{
+app.event({u:"Please Add A To Do"},event=>{
     // update user inputs to previous entry
     userInputs = [...userInputs, event.v, priority1
     ] }
